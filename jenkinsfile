@@ -15,5 +15,11 @@ pipeline{
                 sh 'mvn test'
             }
         }
+        stage ('3rd-stage deploy') {
+           steps {
+              withMaven (maven : 'maven')
+              sh 'mvn deploy'
+           }
+        }
     }
 }
